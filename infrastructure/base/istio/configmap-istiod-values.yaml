@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: istiod-values
+  namespace: istio-system
+data:
+  values.yaml: |
+    meshConfig:
+      mode: ambient
+      enablePrometheusMerge: false
+      # discoverySelectors:
+      #   - matchLabels:
+      #       istio-injection: enabled
+
+    pilot:
+      env:
+        PILOT_ENABLE_AMBIENT: "true"
+        CA_TRUSTED_NODE_ACCOUNTS: "istio-system/ztunnel"
+
+    ambient:
+      enabled: true
+

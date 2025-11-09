@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - helmrepository-istio.yaml
+  - helmrepository-kiali.yaml
+  
+  - namespace.yaml
+  
+  - configmap-istio-cni-values.yaml
+  - configmap-istiod-values.yaml
+  - configmap-istio-gateway-values.yaml
+  - configmap-ztunnel-values.yaml
+  - configmap-kiali-values.yaml
+  
+  - helmrelease-istio-base.yaml
+  - helmrelease-istio-cni.yaml
+  - helmrelease-istiod.yaml
+  - helmrelease-istio-gateway.yaml
+  - helmrelease-ztunnel.yaml
+  - helmrelease-kiali.yaml
+

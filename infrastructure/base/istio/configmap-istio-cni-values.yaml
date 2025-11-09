@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: istio-cni-values
+  namespace: istio-system
+data:
+  values.yaml: |
+    ambient:
+      enabled: true
+

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kiali-values
+  namespace: istio-system
+data:
+  values.yaml: |
+    auth:
+      strategy: anonymous
+
+    deployment:
+      accessible_namespaces:
+        - "**"
+
