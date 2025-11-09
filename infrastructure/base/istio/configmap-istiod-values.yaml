@@ -8,9 +8,9 @@ data:
     meshConfig:
       mode: ambient
       enablePrometheusMerge: false
-      # discoverySelectors:
-      #   - matchLabels:
-      #       istio-injection: enabled
+      discoverySelectors:
+        - matchLabels:
+            istio-injection: enabled
       defaultConfig:
         environment:
           ambient:
