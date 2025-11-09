@@ -5,67 +5,31 @@ metadata:
   namespace: istio-system
 data:
   values.yaml: |
-    name: ""
-    revision: ""
-    replicaCount: 1
-    kind: Deployment
-    rbac:
-      enabled: true
-    serviceAccount:
-      create: true
-      annotations: {}
-      name: ""
-    podAnnotations:
-      prometheus.io/port: "15020"
-      prometheus.io/scrape: "true"
-      prometheus.io/path: "/stats/prometheus"
-      inject.istio.io/templates: "gateway"
-      sidecar.istio.io/inject: "true"
-    securityContext: {}
-    containerSecurityContext: {}
-    service:
+    gateway:
       type: LoadBalancer
+      serviceAnnotations: {}
       ports:
-        - name: status-port
-          port: 15021
-          protocol: TCP
-          targetPort: 15021
         - name: http2
           port: 80
-          protocol: TCP
-          targetPort: 80
+          targetPort: 8080
         - name: https
           port: 443
-          protocol: TCP
-          targetPort: 443
-      annotations: {}
-      loadBalancerIP: ""
-      externalTrafficPolicy: ""
-      externalIPs: []
-      ipFamilyPolicy: ""
-      ipFamilies: []
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 2000m
-        memory: 1024Mi
-    autoscaling:
-      enabled: false
-      minReplicas: 1
-      maxReplicas: 5
-      targetCPUUtilizationPercentage: 80
-      targetMemoryUtilizationPercentage: {}
-      autoscaleBehavior: {}
-    env: {}
-    labels: {}
-    annotations: {}
-    nodeSelector: {}
-    tolerations: []
-    topologySpreadConstraints: []
-    affinity: {}
-    networkGateway: ""
-    imagePullPolicy: ""
-    imagePullSecrets: []
-    priorityClassName: ""
+          targetPort: 8443
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 2000m
+          memory: 1024Mi
+      autoscale:
+        enabled: false
+        minReplicas: 1
+        maxReplicas: 5
+      nodeSelector: {}
+      tolerations: []
+      affinity: {}
+      podAnnotations:
+        prometheus.io/port: "15020"
+        prometheus.io/scrape: "true"
+      imagePullSecrets: []
