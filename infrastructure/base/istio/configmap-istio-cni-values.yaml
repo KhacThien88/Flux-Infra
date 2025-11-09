@@ -5,6 +5,7 @@ metadata:
   namespace: istio-system
 data:
   values.yaml: |
-    ambient:
-      enabled: true
+    cni:
+      ambient:
+        enabled: true
 
