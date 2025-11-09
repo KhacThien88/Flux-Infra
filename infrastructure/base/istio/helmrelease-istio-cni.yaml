@@ -20,5 +20,5 @@ spec:
     - kind: ConfigMap
       name: istio-cni-values
       valuesKey: values.yaml
-  wait: true
+  
 

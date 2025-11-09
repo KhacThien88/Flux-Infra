@@ -20,5 +20,5 @@ spec:
     - kind: ConfigMap
       name: istiod-values
       valuesKey: values.yaml
-  wait: true
+  
 
