@@ -11,6 +11,10 @@ data:
       # discoverySelectors:
       #   - matchLabels:
       #       istio-injection: enabled
+      defaultConfig:
+        environment:
+          ambient:
+            enablesMtls: true
 
     pilot:
       env:
