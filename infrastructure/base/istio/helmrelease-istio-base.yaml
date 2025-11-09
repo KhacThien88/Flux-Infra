@@ -13,7 +13,9 @@ spec:
         kind: HelmRepository
         name: istio
         namespace: flux-system
+  valuesFrom:
+    - kind: ConfigMap
+      name: istio-base-values
+      valuesKey: values.yaml
   install:
     createNamespace: true
-  
-
