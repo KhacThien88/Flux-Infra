@@ -12,6 +12,7 @@ resources:
   - configmap-istio-gateway-values.yaml
   - configmap-ztunnel-values.yaml
   - configmap-kiali-values.yaml
+  - configmap-istio-base-values.yaml
   
   - helmrelease-istio-base.yaml
   - helmrelease-istio-cni.yaml
